@@ -2,19 +2,13 @@
 
 case "$1" in
     --date|-d)
-		#!/bin/bash
 		formatted_date=$(date "+%Y-%m-%d")
-		# Print the formatted date
 		echo "The date is: $formatted_date"
 		read -p "Press Enter to exit..."
         ;;
 	--logs|-l)
-        if [[ ! $2 =~ ^[0-9]+$ ]]; then
-            echo "Nie podano liczby plików lub podana wartość nie jest liczbą całkowitą."
-            exit 1
-        fi
-        
-        for ((i=1; i<=$2; i++)); do
+		num_logs=${2:-100}
+        for ((i=1; i<=$num_logs; i++)); do
             echo "Nazwa pliku: log$i.txt" > log$i.txt
             echo "Nazwa skryptu: $0" > log$i.txt
             date +"%Y-%m-%d" > log$i.txt
@@ -30,4 +24,16 @@ case "$1" in
 		echo "--error, -e [liczba]: tworzy [liczba] plików errorx.txt w katalogu errorx, gdzie x to numer pliku od 1 do [liczba] (domyślnie 100)"
 		read -p "Press Enter to exit..."
         ;;
+	--init
+		git clone https://github.com/AGuyCalledHube/NPwBITDSW.git
+		export PATH=$PATH:$(pwd)/repo
+		;;
+	--error|-e)
+		num_errors=${2:-100}
+		for (( i=1; i<=$num_errors;i++ )); do
+			mkdir -p "error$i"
+			echo "skrypt.sh -e $i" > "error$i/error$i.txt"
+		done
+		read -p "Press Enter to exit..."
+		;;
 esac
