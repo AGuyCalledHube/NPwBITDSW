@@ -19,5 +19,13 @@ case "$1" in
             echo "Nazwa skryptu: $0" > log$i.txt
             date +"%Y-%m-%d" > log$i.txt
         done
+		read -p "Press Enter to exit..."
+        ;;
+	--help)
+        echo "Dostępne opcje:"
+        echo "--date: wyświetla dzisiejszą datę"
+        echo "--logs [liczba]: tworzy [liczba] plików logx.txt, gdzie x to numer pliku od 1 do [liczba]"
+        echo "--help: wyświetla dostępne opcje"
+		read -p "Press Enter to exit..."
         ;;
 esac
