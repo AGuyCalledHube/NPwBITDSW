@@ -7,12 +7,8 @@ case "$1" in
 		read -p "Press Enter to exit..."
         ;;
 	--logs|-l)
-        if [[ ! $2 =~ ^[0-9]+$ ]]; then
-            echo "Nie podano liczby plików lub podana wartość nie jest liczbą całkowitą."
-            exit 1
-        fi
-        
-        for ((i=1; i<=$2; i++)); do
+		num_logs=${2:-100}
+        for ((i=1; i<=$num_logs; i++)); do
             echo "Nazwa pliku: log$i.txt" > log$i.txt
             echo "Nazwa skryptu: $0" > log$i.txt
             date +"%Y-%m-%d" > log$i.txt
@@ -36,5 +32,6 @@ case "$1" in
 			mkdir -p "error$i"
 			echo "skrypt.sh -e $i" > "error$i/error$i.txt"
 		done
-		exit 0
+		read -p "Press Enter to exit..."
+		;;
 esac
