@@ -1,14 +1,14 @@
 #!/bin/bash
 
 case "$1" in
-    --date)
+    --date|-d)
 		#!/bin/bash
 		formatted_date=$(date "+%Y-%m-%d")
 		# Print the formatted date
 		echo "The date is: $formatted_date"
 		read -p "Press Enter to exit..."
         ;;
-	--logs)
+	--logs|-l)
         if [[ ! $2 =~ ^[0-9]+$ ]]; then
             echo "Nie podano liczby plików lub podana wartość nie jest liczbą całkowitą."
             exit 1
@@ -21,7 +21,7 @@ case "$1" in
         done
 		read -p "Press Enter to exit..."
         ;;
-	--help)
+	--help|-h)
         echo "Dostępne opcje:"
         echo "--date: wyświetla dzisiejszą datę"
         echo "--logs [liczba]: tworzy [liczba] plików logx.txt, gdzie x to numer pliku od 1 do [liczba]"
