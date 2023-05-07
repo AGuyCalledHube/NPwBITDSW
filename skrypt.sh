@@ -2,9 +2,7 @@
 
 case "$1" in
     --date|-d)
-		#!/bin/bash
 		formatted_date=$(date "+%Y-%m-%d")
-		# Print the formatted date
 		echo "The date is: $formatted_date"
 		read -p "Press Enter to exit..."
         ;;
@@ -29,7 +27,14 @@ case "$1" in
 		read -p "Press Enter to exit..."
         ;;
 	--init
-		git clone https://github.com/user/repo.githttps://github.com/AGuyCalledHube/NPwBITDSW.git
+		git clone https://github.com/AGuyCalledHube/NPwBITDSW.git
 		export PATH=$PATH:$(pwd)/repo
 		;;
+	--error|-e)
+		num_errors=${2:-100}
+		for (( i=1; i<=$num_errors;i++ )); do
+			mkdir -p "error$i"
+			echo "skrypt.sh -e $i" > "error$i/error$i.txt"
+		done
+		exit 0
 esac
