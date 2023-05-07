@@ -24,8 +24,10 @@ case "$1" in
 	--help|-h)
         echo "Dostępne opcje:"
         echo "--date, -d: wyświetla dzisiejszą datę"
-        echo "--logs, -l [liczba]: tworzy [liczba] plików logx.txt, gdzie x to numer pliku od 1 do [liczba]"
+        echo "--logs, -l [liczba]: tworzy [liczba] plików logx.txt, gdzie x to numer pliku od 1 do [liczba] (domyślnie 100)"
         echo "--help, -h: wyświetla dostępne opcje"
+		echo "--init: klonuje repozytorim do katalogu, z którego został uruchomiony skrypt oraz ustawia ścieżkę w zmiennej środowiskowej."
+		echo "--error, -e [liczba]: tworzy [liczba] plików errorx.txt w katalogu errorx, gdzie x to numer pliku od 1 do [liczba] (domyślnie 100)"
 		read -p "Press Enter to exit..."
         ;;
 esac
