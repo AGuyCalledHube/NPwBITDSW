@@ -28,4 +28,8 @@ case "$1" in
         echo "--help: wyświetla dostępne opcje"
 		read -p "Press Enter to exit..."
         ;;
+	--init
+		git clone https://github.com/user/repo.githttps://github.com/AGuyCalledHube/NPwBITDSW.git
+		export PATH=$PATH:$(pwd)/repo
+		;;
 esac
