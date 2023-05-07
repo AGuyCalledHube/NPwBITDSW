@@ -23,9 +23,9 @@ case "$1" in
         ;;
 	--help|-h)
         echo "Dostępne opcje:"
-        echo "--date: wyświetla dzisiejszą datę"
-        echo "--logs [liczba]: tworzy [liczba] plików logx.txt, gdzie x to numer pliku od 1 do [liczba]"
-        echo "--help: wyświetla dostępne opcje"
+        echo "--date, -d: wyświetla dzisiejszą datę"
+        echo "--logs, -l [liczba]: tworzy [liczba] plików logx.txt, gdzie x to numer pliku od 1 do [liczba]"
+        echo "--help, -h: wyświetla dostępne opcje"
 		read -p "Press Enter to exit..."
         ;;
 esac
